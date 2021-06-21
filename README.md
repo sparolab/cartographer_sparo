@@ -10,5 +10,7 @@
     catkin_make_isolated --install --use-ninja
 ~~~
 
-
+### Robot Descriptions
+- Omorobot R1
+- AgileX Robotics SCOUT MINI 
 
