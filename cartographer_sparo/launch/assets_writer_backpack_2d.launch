@@ -1,5 +1,5 @@
 <!--
-  Copyright 2018 The Cartographer Authors
+  Copyright 2016 The Cartographer Authors
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -15,17 +15,14 @@
 -->
 
 <launch>
-  <arg name="config_file" default="assets_writer_mir.lua"/>
+  <arg name="config_file" default="assets_writer_backpack_2d.lua"/>
   <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true"
       type="cartographer_assets_writer" args="
-          -configuration_directory $(find cartographer_mir)/configuration_files
+          -configuration_directory $(find cartographer_ros)/configuration_files
           -configuration_basename $(arg config_file)
-          -urdf_filename $(find cartographer_mir)/urdf/mir-100.urdf
-          -use_bag_transforms=false
+          -urdf_filename $(find cartographer_ros)/urdf/backpack_2d.urdf
           -bag_filenames $(arg bag_filenames)
           -pose_graph_filename $(arg pose_graph_filename)"
       output="screen">
-    <remap from="scan_1" to="f_scan" />
-    <remap from="scan_2" to="b_scan" />
-   </node>
+  </node>
 </launch>
